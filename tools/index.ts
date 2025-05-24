@@ -3,13 +3,15 @@ import { schema as gdriveReadFileSchema, readFile } from './gdrive_read_file.js'
 import { schema as gsheetsUpdateCellSchema, updateCell } from './gsheets_update_cell.js';
 import { schema as gsheetsReadSchema, readSheet } from './gsheets_read.js';
 import { schema as gsheetsAppendRowSchema, appendRow } from './gsheets_append_row.js';
+import { schema as gsheetsBatchUpdateSchema, batchUpdate } from './gsheets_batch_update.js';
 import {
   Tool,
   GDriveSearchInput,
   GDriveReadFileInput,
   GSheetsUpdateCellInput,
   GSheetsReadInput,
-  GSheetsAppendRowInput
+  GSheetsAppendRowInput,
+  GSheetsBatchUpdateInput
 } from './types.js';
 
 export const tools: [
@@ -17,7 +19,8 @@ export const tools: [
   Tool<GDriveReadFileInput>,
   Tool<GSheetsUpdateCellInput>,
   Tool<GSheetsReadInput>,
-  Tool<GSheetsAppendRowInput>
+  Tool<GSheetsAppendRowInput>,
+  Tool<GSheetsBatchUpdateInput>
 ] = [
   {
     ...gdriveSearchSchema,
@@ -38,5 +41,9 @@ export const tools: [
   {
     ...gsheetsAppendRowSchema,
     handler: appendRow,
+  },
+  {
+    ...gsheetsBatchUpdateSchema,
+    handler: batchUpdate,
   }
 ];

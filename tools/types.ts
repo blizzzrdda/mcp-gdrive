@@ -50,3 +50,15 @@ export interface GSheetsAppendRowInput {
   insertDataOption?: 'OVERWRITE' | 'INSERT_ROWS'; // How data should be inserted
 }
 
+export interface GSheetsUpdateRange {
+  range: string; // A1 notation range (e.g., 'Sheet1!A1:B2')
+  values: string[][]; // 2D array of values to update
+}
+
+export interface GSheetsBatchUpdateInput {
+  fileId: string;
+  updates: GSheetsUpdateRange[]; // Array of range updates
+  valueInputOption?: 'RAW' | 'USER_ENTERED' | 'INPUT_VALUE_OPTION_UNSPECIFIED'; // How input data should be interpreted
+  includeValuesInResponse?: boolean; // Whether to include updated values in response
+}
+
