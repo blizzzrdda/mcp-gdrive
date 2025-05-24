@@ -12,12 +12,10 @@ export const schema = {
             pageToken: {
                 type: "string",
                 description: "Token for the next page of results",
-                optional: true,
             },
             pageSize: {
                 type: "number",
                 description: "Number of results per page (max 100)",
-                optional: true,
             },
         },
         required: ["query"],

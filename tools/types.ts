@@ -42,3 +42,11 @@ export interface GSheetsReadInput {
   sheetId?: number; // Optional specific sheet ID
 }
 
+export interface GSheetsAppendRowInput {
+  fileId: string;
+  range: string; // A1 notation range to search for the table (e.g., 'Sheet1!A:A' or 'Sheet1!A1:Z1')
+  values: string[]; // Array of values to append as a new row
+  valueInputOption?: 'RAW' | 'USER_ENTERED' | 'INPUT_VALUE_OPTION_UNSPECIFIED'; // How input data should be interpreted
+  insertDataOption?: 'OVERWRITE' | 'INSERT_ROWS'; // How data should be inserted
+}
+

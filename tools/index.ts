@@ -2,19 +2,22 @@ import { schema as gdriveSearchSchema, search } from './gdrive_search.js';
 import { schema as gdriveReadFileSchema, readFile } from './gdrive_read_file.js';
 import { schema as gsheetsUpdateCellSchema, updateCell } from './gsheets_update_cell.js';
 import { schema as gsheetsReadSchema, readSheet } from './gsheets_read.js';
-import { 
-  Tool, 
-  GDriveSearchInput, 
-  GDriveReadFileInput, 
+import { schema as gsheetsAppendRowSchema, appendRow } from './gsheets_append_row.js';
+import {
+  Tool,
+  GDriveSearchInput,
+  GDriveReadFileInput,
   GSheetsUpdateCellInput,
-  GSheetsReadInput 
+  GSheetsReadInput,
+  GSheetsAppendRowInput
 } from './types.js';
 
 export const tools: [
   Tool<GDriveSearchInput>,
-  Tool<GDriveReadFileInput>, 
+  Tool<GDriveReadFileInput>,
   Tool<GSheetsUpdateCellInput>,
-  Tool<GSheetsReadInput>
+  Tool<GSheetsReadInput>,
+  Tool<GSheetsAppendRowInput>
 ] = [
   {
     ...gdriveSearchSchema,
@@ -31,5 +34,9 @@ export const tools: [
   {
     ...gsheetsReadSchema,
     handler: readSheet,
+  },
+  {
+    ...gsheetsAppendRowSchema,
+    handler: appendRow,
   }
 ];
